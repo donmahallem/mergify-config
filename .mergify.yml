@@ -12,6 +12,11 @@ pull_request_rules:
           queue:
               method: squash
               name: default
+    - name: continuously rebase pull requests when it's labeled with `ready-to-merge`
+      conditions:
+          - label=ready-to-merge
+      actions:
+          rebase: {}
     - name: delete head branch on merged pull requests
       conditions:
           - merged
