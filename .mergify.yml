@@ -28,6 +28,11 @@ pull_request_rules:
         remove:
           - ready-to-merge
       delete_head_branch:
+  - name: rebase ready-to-merge branches
+    conditions:
+      - label = ready-to-merge
+    actions:
+      rebase:
   - name: Merge staged release + merge PRs labeled ready-to-merge
     conditions: []
     actions:
